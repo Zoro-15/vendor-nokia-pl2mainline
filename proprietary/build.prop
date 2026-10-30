@@ -1,0 +1,28 @@
+#
+# Vendor Build Properties for Nokia 6.1 (PL2) Mainline
+# Target: Slot B ONLY | LineageOS 24.0 / Treble GSI
+#
+
+# Device Identity
+ro.hardware=nokia-pl2
+ro.product.vendor.brand=Nokia
+ro.product.vendor.device=PL2_mainline
+ro.product.vendor.manufacturer=HMD Global
+ro.product.vendor.model=Nokia 6.1
+ro.product.vendor.name=lineage_PL2_mainline
+
+# Mandatory Qualcomm Adreno 508 / A5xx Workarounds (docs/qcom/GRAPHICS.md)
+# Prevents UBWC corruption and sysmem allocator deadlocks on retail SDM630
+vendor.mesa.fd.mesa.debug=sysmem
+vendor.minigbm.avoid_ubwc=true
+ro.hardware.egl=mesa
+
+# Treble & System Integrity
+ro.treble.enabled=true
+ro.vendor.build.security_patch=2026-10-01
+ro.vendor.build.type=userdebug
+ro.vendor.build.tags=test-keys
+ro.vendor.build.version.incremental=20261030
+
+# USB Gadget Controller
+sys.usb.controller=a800000.dwc3

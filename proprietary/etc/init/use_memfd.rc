@@ -1,0 +1,5 @@
+# Force modern anonymous shared memory allocations through memfd_create()
+# Android 17 / Mainline compatibility (deprecates out-of-tree ashmem)
+
+on early-init
+    setprop sys.use_memfd true

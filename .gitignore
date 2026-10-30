@@ -1,0 +1,4 @@
+# Ignore built images
+*.img
+*.raw.img
+*.tar.gz
