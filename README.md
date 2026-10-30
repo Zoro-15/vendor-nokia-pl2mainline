@@ -43,14 +43,21 @@ vendor-nokia-pl2mainline/
         ├── a508_zap.b00                # Authentic OEM Zap Shader Slice 0
         ├── a508_zap.b01                # Authentic OEM Zap Shader Slice 1
         ├── a508_zap.b02                # Authentic OEM Zap Shader Slice 2
-        ├── a508_zap.elf                # Authentic OEM Zap Shader Unified ELF
         ├── a530_pm4.fw                 # Adreno 508 PM4 microcode
         └── a530_pfp.fw                 # Adreno 508 PFP microcode
 ```
 
 ---
 
-## 3. Fast Packaging (Google Colab / Standalone Linux)
+## 3. GitHub Actions CI & Releases
+Every commit pushed to `lineage-24.0` triggers `.github/workflows/build_vendor.yml`.
+- Automatically fetches and verifies upstream firmware via `extract_files.sh`.
+- Generates sparse Android ext4 image `vendor_b.img` and `vendor.img`.
+- Publishes flashable releases tagged `vendor-v<build_number>` with SHA256 checksums.
+
+---
+
+## 4. Local Fast Packaging (Google Colab / Linux / WSL)
 To generate `vendor_b.img` in 15 seconds:
 ```bash
 ./pack_vendor.sh

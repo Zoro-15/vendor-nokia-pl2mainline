@@ -26,8 +26,11 @@ if [ "$(id -u)" -eq 0 ]; then
     chown -R 0:0 "${SRC_DIR}"
 fi
 
+mkdir -p "${OUT_DIR}"
+rm -f "${RAW_IMG}" "${OUTPUT}"
+
 echo "--> Generating ext4 filesystem from ${SRC_DIR}..."
-mke2fs -t ext4 -b 4096 -d "${SRC_DIR}" -L "vendor" "${RAW_IMG}" "${IMG_SIZE}"
+mke2fs -F -t ext4 -b 4096 -d "${SRC_DIR}" -L "vendor" "${RAW_IMG}" "${IMG_SIZE}"
 
 echo "--> Converting raw ext4 into Android sparse image..."
 if command -v img2simg >/dev/null 2>&1; then
