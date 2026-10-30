@@ -8,8 +8,10 @@ VENDOR_PATH := vendor/nokia/PL2_mainline
 # Copy vendor configuration and authentic OEM firmware files
 PRODUCT_COPY_FILES += \
     $(VENDOR_PATH)/proprietary/etc/fstab.nokia-pl2:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.nokia-pl2 \
+    $(VENDOR_PATH)/proprietary/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
     $(VENDOR_PATH)/proprietary/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     $(VENDOR_PATH)/proprietary/etc/init/hw/init.nokia-pl2.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.nokia-pl2.rc \
+    $(VENDOR_PATH)/proprietary/etc/init/hw/init.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.rc \
     $(VENDOR_PATH)/proprietary/etc/init/use_memfd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/use_memfd.rc \
     $(VENDOR_PATH)/proprietary/etc/vintf/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest.xml \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.mdt \
