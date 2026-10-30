@@ -3,3 +3,4 @@
 
 on early-init
     setprop sys.use_memfd true
+

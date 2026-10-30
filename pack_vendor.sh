@@ -19,6 +19,13 @@ if ! command -v mke2fs >/dev/null 2>&1 || ! command -v img2simg >/dev/null 2>&1;
     apt-get update -qq && apt-get install -y -qq e2fsprogs android-sdk-libsparse-utils > /dev/null 2>&1 || true
 fi
 
+echo "--> Preparing permissions for Android vendor partition..."
+chmod -R 755 "${SRC_DIR}"
+find "${SRC_DIR}" -type f -exec chmod 644 {} +
+if [ "$(id -u)" -eq 0 ]; then
+    chown -R 0:0 "${SRC_DIR}"
+fi
+
 echo "--> Generating ext4 filesystem from ${SRC_DIR}..."
 mke2fs -t ext4 -b 4096 -d "${SRC_DIR}" -L "vendor" "${RAW_IMG}" "${IMG_SIZE}"
 
@@ -38,3 +45,4 @@ echo ""
 echo " Flash Command (Slot B ONLY):"
 echo "   fastboot flash vendor_b ${OUTPUT}"
 echo "=========================================================="
+

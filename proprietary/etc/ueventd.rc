@@ -22,3 +22,4 @@ modalias_handling enabled
 
 # Input Subsystem (Goodix GT1152 Digitizer)
 /dev/input/event*         0660   system     input
+

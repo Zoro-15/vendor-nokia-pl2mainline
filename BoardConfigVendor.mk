@@ -4,3 +4,4 @@
 #
 
 VENDOR_PATH := vendor/nokia/PL2_mainline
+

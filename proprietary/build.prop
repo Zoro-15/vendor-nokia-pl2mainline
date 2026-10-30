@@ -26,3 +26,4 @@ ro.vendor.build.version.incremental=20261030
 
 # USB Gadget Controller
 sys.usb.controller=a800000.dwc3
+

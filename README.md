@@ -59,3 +59,4 @@ Flash command (Slot B ONLY):
 ```cmd
 fastboot flash vendor_b vendor_b.img
 ```
+

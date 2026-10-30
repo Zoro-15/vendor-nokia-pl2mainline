@@ -16,7 +16,6 @@ PRODUCT_COPY_FILES += \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b00:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b00 \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b01:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b01 \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b02:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b02 \
-    $(VENDOR_PATH)/proprietary/firmware/a508_zap.elf:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.elf \
     $(VENDOR_PATH)/proprietary/firmware/a530_pm4.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pm4.fw \
     $(VENDOR_PATH)/proprietary/firmware/a530_pfp.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pfp.fw
 
@@ -27,3 +26,4 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.minigbm.avoid_ubwc=true \
     ro.hardware.egl=mesa \
     sys.usb.controller=a800000.dwc3
+

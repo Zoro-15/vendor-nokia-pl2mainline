@@ -8,3 +8,4 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(TARGET_DEVICE),PL2_mainline)
 include $(CLEAR_VARS)
 endif
+

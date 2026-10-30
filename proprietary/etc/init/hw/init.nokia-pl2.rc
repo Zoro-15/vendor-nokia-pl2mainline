@@ -26,3 +26,4 @@ on boot
     chmod 0666 /dev/dri/renderD128
     chmod 0660 /dev/input/event0
     chown system input /dev/input/event0
+
