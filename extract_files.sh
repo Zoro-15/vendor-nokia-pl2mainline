@@ -24,5 +24,10 @@ for file in "${!FILES[@]}"; do
     curl -fsSL -L "${url}" -o "${FW_DIR}/${file}"
 done
 
+echo "--> Populating qcom/ firmware directory..."
+mkdir -p "${FW_DIR}/qcom"
+cp -f "${FW_DIR}"/a508_zap.* "${FW_DIR}/qcom/"
+cp -f "${FW_DIR}"/a530_*.fw "${FW_DIR}/qcom/"
+
 echo "--> Verified $(ls -1 "${FW_DIR}" | wc -l) firmware files in ${FW_DIR}"
 

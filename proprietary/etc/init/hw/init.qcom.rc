@@ -17,8 +17,9 @@ on late-fs
     mount_all /vendor/etc/fstab.nokia-pl2 --late
 
 on init
-    # Configure USB gadget controller (DWC3 on SDM630)
-    setprop sys.usb.controller a800000.dwc3
+    # Configure USB gadget controller (Mainline Linux 7.2 UDC platform device)
+    setprop sys.usb.controller a800000.usb
+    setprop vendor.usb.controller a800000.usb
 
 on boot
     # Permissions for DRM render nodes & Goodix touch

@@ -1,5 +1,5 @@
 # Firmware directories for Nokia 6.1 Mainline
-firmware_directories /vendor/firmware/ /firmware/image/
+firmware_directories /vendor/firmware/ /vendor/firmware/qcom/ /vendor/firmware_mnt/
 modalias_handling enabled
 
 # DRM / KMS Graphics (Adreno 508 / freedreno / card0)
