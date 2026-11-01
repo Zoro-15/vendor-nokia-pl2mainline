@@ -2488,10 +2488,10 @@
 ;;* lme
 (typetransition init_202604 hal_audio_default_exec process hal_audio_default)
 ;;* lmx 7 system/sepolicy/vendor/hal_audio_default.te
-(allow hal_audio_default hal_allocator (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow hal_audio_default hal_allocator (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 7 system/sepolicy/vendor/hal_audio_default.te
-(allow hal_allocator hal_audio_default (memfd_file (read write getattr map)))
+;; [SANITIZED src 'hal_allocator' bad_attr] (allow hal_allocator hal_audio_default (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 8 system/sepolicy/vendor/hal_audio_default.te
 (allow hal_audio_default hal_bluetooth (memfd_file (read write getattr map)))
@@ -2770,7 +2770,7 @@
 (allow hal_cas_default vndservicemanager_202604 (binder (call transfer)))
 ;;* lme
 ;;* lmx 10 system/sepolicy/vendor/hal_cas_default.te
-(allow hal_cas_default hal_allocator (fd (use)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow hal_cas_default hal_allocator (fd (use)))
 ;;* lme
 ;;* lmx 5 system/sepolicy/vendor/hal_configstore_default.te
 (allow init_202604 hal_configstore_default_exec (file (read getattr map execute open)))
@@ -4099,10 +4099,10 @@
 ;;* lme
 (dontaudit hal_wifi_supplicant_default wifi_data_file_202604 (dir (search)))
 ;;* lmx 39 system/sepolicy/vendor/hal_wifi_supplicant_default.te
-(allow hal_wifi_supplicant_default hal_nlinterceptor (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'hal_nlinterceptor' bad_attr] (allow hal_wifi_supplicant_default hal_nlinterceptor (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 39 system/sepolicy/vendor/hal_wifi_supplicant_default.te
-(allow hal_nlinterceptor hal_wifi_supplicant_default (memfd_file (read write getattr map)))
+;; [SANITIZED src 'hal_nlinterceptor' bad_attr] (allow hal_nlinterceptor hal_wifi_supplicant_default (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 4 system/sepolicy/vendor/mediacodec.te
 (allow init_202604 mediacodec_exec (file (read getattr map execute open)))
@@ -4137,10 +4137,10 @@
 (allow hal_omx mediacodec (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 16 system/sepolicy/vendor/mediacodec.te
-(allow mediacodec hal_allocator (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow mediacodec hal_allocator (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 16 system/sepolicy/vendor/mediacodec.te
-(allow hal_allocator mediacodec (memfd_file (read write getattr map)))
+;; [SANITIZED src 'hal_allocator' bad_attr] (allow hal_allocator mediacodec (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 17 system/sepolicy/vendor/mediacodec.te
 (allow mediacodec hal_graphics_allocator (memfd_file (read write getattr map)))
@@ -4679,10 +4679,10 @@
 (neverallow ssg_app base_typeattr_262_202604 (anon_inode (ioctl read write create getattr setattr lock relabelfrom relabelto append map unlink link rename execute quotaon mounton audit_access open execmod watch watch_mount watch_sb watch_with_perm watch_reads)))
 ;;* lme
 ;;* lmx 37 device/qcom/sepolicy-legacy-um/legacy/vendor/ssg/ssg_app.te
-(allow ssg_app vendor_qccsyshal (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'vendor_qccsyshal' bad_attr] (allow ssg_app vendor_qccsyshal (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 37 device/qcom/sepolicy-legacy-um/legacy/vendor/ssg/ssg_app.te
-(allow vendor_qccsyshal ssg_app (memfd_file (read write getattr map)))
+;; [SANITIZED src 'vendor_qccsyshal' bad_attr] (allow vendor_qccsyshal ssg_app (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 40 device/qcom/sepolicy-legacy-um/legacy/vendor/ssg/ssg_app.te
 (allow ssg_app mlid_socket (sock_file (write)))
@@ -5180,7 +5180,7 @@
 (allow cameraserver_202604 vendor_adsprpc_prop (file (read getattr map open)))
 ;;* lme
 ;;* lmx 55 device/qcom/sepolicy-legacy-um/legacy/vendor/common/cameraserver.te
-(allow cameraserver_202604 hal_allocator (fd (use)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow cameraserver_202604 hal_allocator (fd (use)))
 ;;* lme
 ;;* lmx 58 device/qcom/sepolicy-legacy-um/legacy/vendor/common/cameraserver.te
 (allow cameraserver_202604 hal_graphics_composer (binder (call transfer)))
@@ -6263,10 +6263,10 @@
 (allow vendor_hal_embmssl vendor_embmssl_app (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 38 device/qcom/sepolicy-legacy-um/legacy/vendor/common/embmssl_app.te
-(allow vendor_embmssl_app vendor_hal_perf (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'vendor_hal_perf' bad_attr] (allow vendor_embmssl_app vendor_hal_perf (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 38 device/qcom/sepolicy-legacy-um/legacy/vendor/common/embmssl_app.te
-(allow vendor_hal_perf vendor_embmssl_app (memfd_file (read write getattr map)))
+;; [SANITIZED src 'vendor_hal_perf' bad_attr] (allow vendor_hal_perf vendor_embmssl_app (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 32 device/qcom/sepolicy-legacy-um/legacy/vendor/common/energyawareness.te
 (allow init_202604 energyawareness_exec (file (read getattr map execute open)))
@@ -6633,22 +6633,22 @@
 (allow gmscore_app_202604 camera2_extensions_prop_202604 (file (read getattr map open)))
 ;;* lme
 ;;* lmx 28 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
-(allow hal_alarm_qti_client hal_alarm_qti_server (binder (call transfer)))
+;; [SANITIZED src 'hal_alarm_qti_client' bad_attr] (allow hal_alarm_qti_client hal_alarm_qti_server (binder (call transfer)))
 ;;* lme
 ;;* lmx 28 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
-(allow hal_alarm_qti_server hal_alarm_qti_client (binder (transfer)))
+;; [SANITIZED tgt 'hal_alarm_qti_client' bad_attr] (allow hal_alarm_qti_server hal_alarm_qti_client (binder (transfer)))
 ;;* lme
 ;;* lmx 28 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
-(allow hal_alarm_qti_client hal_alarm_qti_server (fd (use)))
+;; [SANITIZED src 'hal_alarm_qti_client' bad_attr] (allow hal_alarm_qti_client hal_alarm_qti_server (fd (use)))
 ;;* lme
 ;;* lmx 29 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
-(allow hal_alarm_qti_server hal_alarm_qti_client (binder (call transfer)))
+;; [SANITIZED tgt 'hal_alarm_qti_client' bad_attr] (allow hal_alarm_qti_server hal_alarm_qti_client (binder (call transfer)))
 ;;* lme
 ;;* lmx 29 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
-(allow hal_alarm_qti_client hal_alarm_qti_server (binder (transfer)))
+;; [SANITIZED src 'hal_alarm_qti_client' bad_attr] (allow hal_alarm_qti_client hal_alarm_qti_server (binder (transfer)))
 ;;* lme
 ;;* lmx 29 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
-(allow hal_alarm_qti_server hal_alarm_qti_client (fd (use)))
+;; [SANITIZED tgt 'hal_alarm_qti_client' bad_attr] (allow hal_alarm_qti_server hal_alarm_qti_client (fd (use)))
 ;;* lme
 ;;* lmx 31 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
 (allow hal_alarm_qti_server hal_alarm_qti_hwservice (hwservice_manager (add find)))
@@ -6660,7 +6660,7 @@
 (neverallow base_typeattr_277_202604 hal_alarm_qti_hwservice (hwservice_manager (add)))
 ;;* lme
 ;;* lmx 33 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti.te
-(allow hal_alarm_qti_client hal_alarm_qti_hwservice (hwservice_manager (find)))
+;; [SANITIZED src 'hal_alarm_qti_client' bad_attr] (allow hal_alarm_qti_client hal_alarm_qti_hwservice (hwservice_manager (find)))
 ;;* lme
 ;;* lmx 32 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_alarm_qti_default.te
 (allow init_202604 hal_alarm_qti_default_exec (file (read getattr map execute open)))
@@ -7380,7 +7380,7 @@
 (allow hal_drm_widevine mediadrm_vendor_data_file (file (ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads)))
 ;;* lme
 ;;* lmx 46 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_drm_widevine.te
-(allow hal_drm_widevine hal_allocator (fd (use)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow hal_drm_widevine hal_allocator (fd (use)))
 ;;* lme
 ;;* lmx 49 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_drm_widevine.te
 (allow hal_drm_widevine firmware_file (dir (ioctl read getattr lock open watch watch_reads search)))
@@ -7483,10 +7483,10 @@
 (neverallow base_typeattr_284_202604 hal_esepowermanager_hwservice (hwservice_manager (add)))
 ;;* lme
 ;;* lmx 37 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_esepowermanager_qti.te
-(allow hal_esepowermanager_qti hal_allocator (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow hal_esepowermanager_qti hal_allocator (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 37 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_esepowermanager_qti.te
-(allow hal_allocator hal_esepowermanager_qti (memfd_file (read write getattr map)))
+;; [SANITIZED src 'hal_allocator' bad_attr] (allow hal_allocator hal_esepowermanager_qti (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 42 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_esepowermanager_qti.te
 (allow hal_esepowermanager_qti nfc_device_202604 (chr_file (ioctl read write getattr lock append map open watch watch_reads)))
@@ -8606,25 +8606,25 @@
 ;;* lme
 (typetransition init_202604 hal_qseecom_default_exec process hal_qseecom_default)
 ;;* lmx 36 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_client hal_qseecom_server (binder (call transfer)))
+;; [SANITIZED src 'hal_qseecom_client' bad_attr] (allow hal_qseecom_client hal_qseecom_server (binder (call transfer)))
 ;;* lme
 ;;* lmx 36 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_server hal_qseecom_client (binder (transfer)))
+;; [SANITIZED tgt 'hal_qseecom_client' bad_attr] (allow hal_qseecom_server hal_qseecom_client (binder (transfer)))
 ;;* lme
 ;;* lmx 36 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_client hal_qseecom_server (fd (use)))
+;; [SANITIZED src 'hal_qseecom_client' bad_attr] (allow hal_qseecom_client hal_qseecom_server (fd (use)))
 ;;* lme
 ;;* lmx 37 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_server hal_qseecom_client (binder (call transfer)))
+;; [SANITIZED tgt 'hal_qseecom_client' bad_attr] (allow hal_qseecom_server hal_qseecom_client (binder (call transfer)))
 ;;* lme
 ;;* lmx 37 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_client hal_qseecom_server (binder (transfer)))
+;; [SANITIZED src 'hal_qseecom_client' bad_attr] (allow hal_qseecom_client hal_qseecom_server (binder (transfer)))
 ;;* lme
 ;;* lmx 37 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_server hal_qseecom_client (fd (use)))
+;; [SANITIZED tgt 'hal_qseecom_client' bad_attr] (allow hal_qseecom_server hal_qseecom_client (fd (use)))
 ;;* lme
 ;;* lmx 40 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_client hal_qseecom_hwservice (hwservice_manager (find)))
+;; [SANITIZED src 'hal_qseecom_client' bad_attr] (allow hal_qseecom_client hal_qseecom_hwservice (hwservice_manager (find)))
 ;;* lme
 ;;* lmx 40 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
 (allow hal_qseecom_server hal_qseecom_hwservice (hwservice_manager (add find)))
@@ -8639,10 +8639,10 @@
 (neverallow base_typeattr_298_202604 hal_qseecom_hwservice (hwservice_manager (find)))
 ;;* lme
 ;;* lmx 43 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_qseecom_default hal_allocator (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow hal_qseecom_default hal_allocator (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 43 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
-(allow hal_allocator hal_qseecom_default (memfd_file (read write getattr map)))
+;; [SANITIZED src 'hal_allocator' bad_attr] (allow hal_allocator hal_qseecom_default (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 46 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qseecom.te
 (allow hal_qseecom_default ion_device_202604 (chr_file (ioctl read write getattr lock append map open watch watch_reads)))
@@ -8681,10 +8681,10 @@
 (neverallow base_typeattr_299_202604 hal_qteeconnector_hwservice (hwservice_manager (add)))
 ;;* lme
 ;;* lmx 42 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qteeconnector_qti.te
-(allow hal_qteeconnector_qti hal_allocator (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow hal_qteeconnector_qti hal_allocator (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 42 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qteeconnector_qti.te
-(allow hal_allocator hal_qteeconnector_qti (memfd_file (read write getattr map)))
+;; [SANITIZED src 'hal_allocator' bad_attr] (allow hal_allocator hal_qteeconnector_qti (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 45 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hal_qteeconnector_qti.te
 (allow hal_qteeconnector ion_device_202604 (chr_file (ioctl read write getattr lock append map open watch watch_reads)))
@@ -9750,10 +9750,10 @@
 (allow hal_hbtp_client hal_hbtp_hwservice (hwservice_manager (find)))
 ;;* lme
 ;;* lmx 84 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hbtp.te
-(allow hbtp hal_allocator (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'hal_allocator' bad_attr] (allow hbtp hal_allocator (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 84 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hbtp.te
-(allow hal_allocator hbtp (memfd_file (read write getattr map)))
+;; [SANITIZED src 'hal_allocator' bad_attr] (allow hal_allocator hbtp (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 86 device/qcom/sepolicy-legacy-um/legacy/vendor/common/hbtp.te
 (allow hbtp sysfs_soc (dir (ioctl read getattr lock open watch watch_reads search)))
@@ -11625,10 +11625,10 @@
 (allowx location self (ioctl udp_socket (0x8b00 0x8b02 0x8b04 0x8b06 0x8b08 0x8b0a 0x8b0c 0x8b0e 0x8b10 (range 0x8b14 0x8b1d) 0x8b20 0x8b22 0x8b24 0x8b26 0x8b28 (range 0x8b2a 0x8b2c) (range 0x8b30 0x8b36) (range 0x8be0 0x8bff))))
 ;;* lme
 ;;* lmx 122 device/qcom/sepolicy-legacy-um/legacy/vendor/common/location.te
-(allow location vendor_qccsyshal (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'vendor_qccsyshal' bad_attr] (allow location vendor_qccsyshal (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 122 device/qcom/sepolicy-legacy-um/legacy/vendor/common/location.te
-(allow vendor_qccsyshal location (memfd_file (read write getattr map)))
+;; [SANITIZED src 'vendor_qccsyshal' bad_attr] (allow vendor_qccsyshal location (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 124 device/qcom/sepolicy-legacy-um/legacy/vendor/common/location.te
 (allow location hal_datafactory_hwservice (hwservice_manager (find)))
@@ -11649,10 +11649,10 @@
 (allow location self (capability2 (wake_alarm)))
 ;;* lme
 ;;* lmx 132 device/qcom/sepolicy-legacy-um/legacy/vendor/common/location.te
-(allow location vendor_qccsyshal (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'vendor_qccsyshal' bad_attr] (allow location vendor_qccsyshal (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 132 device/qcom/sepolicy-legacy-um/legacy/vendor/common/location.te
-(allow vendor_qccsyshal location (memfd_file (read write getattr map)))
+;; [SANITIZED src 'vendor_qccsyshal' bad_attr] (allow vendor_qccsyshal location (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 133 device/qcom/sepolicy-legacy-um/legacy/vendor/common/location.te
 (allow location hal_cacert_hwservice (hwservice_manager (find)))
@@ -13850,10 +13850,10 @@
 (allow vendor_qcc_trd_202604 vendor_firmware_file (file (ioctl read getattr lock map open watch watch_reads)))
 ;;* lme
 ;;* lmx 29 device/qcom/sepolicy-legacy-um/legacy/vendor/common/qcc_utils_app.te
-(allow vendor_qcc_utils_app_202604 vendor_hal_perf (memfd_file (read write getattr map)))
+;; [SANITIZED tgt 'vendor_hal_perf' bad_attr] (allow vendor_qcc_utils_app_202604 vendor_hal_perf (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 29 device/qcom/sepolicy-legacy-um/legacy/vendor/common/qcc_utils_app.te
-(allow vendor_hal_perf vendor_qcc_utils_app_202604 (memfd_file (read write getattr map)))
+;; [SANITIZED src 'vendor_hal_perf' bad_attr] (allow vendor_hal_perf vendor_qcc_utils_app_202604 (memfd_file (read write getattr map)))
 ;;* lme
 ;;* lmx 32 device/qcom/sepolicy-legacy-um/legacy/vendor/common/qcomsysd.te
 (allow init_202604 vendor_qcomsysd_exec (file (read getattr map execute open)))
@@ -20885,16 +20885,16 @@
 (allow wcnss_service wifi_data_file_202604 (file (ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_health.te
-(allow hal_lineage_health_client hal_lineage_health_server (binder (call transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_health_client hal_lineage_health_server (binder (call transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_health.te
-(allow hal_lineage_health_server hal_lineage_health_client (binder (transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_health_server hal_lineage_health_client (binder (transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_health.te
-(allow hal_lineage_health_client hal_lineage_health_server (fd (use)))
+;; [SANITIZED empty attr] (allow hal_lineage_health_client hal_lineage_health_server (fd (use)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_health.te
-(allow hal_lineage_health_client hal_lineage_health_service (service_manager (find)))
+;; [SANITIZED empty attr] (allow hal_lineage_health_client hal_lineage_health_service (service_manager (find)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_health.te
 (allow hal_lineage_health_server hal_lineage_health_service (service_manager (add find)))
@@ -20909,16 +20909,16 @@
 (neverallow base_typeattr_394_202604 hal_lineage_health_service (service_manager (find)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_livedisplay.te
-(allow hal_lineage_livedisplay_client hal_lineage_livedisplay_server (binder (call transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_livedisplay_client hal_lineage_livedisplay_server (binder (call transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_livedisplay.te
-(allow hal_lineage_livedisplay_server hal_lineage_livedisplay_client (binder (transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_livedisplay_server hal_lineage_livedisplay_client (binder (transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_livedisplay.te
-(allow hal_lineage_livedisplay_client hal_lineage_livedisplay_server (fd (use)))
+;; [SANITIZED empty attr] (allow hal_lineage_livedisplay_client hal_lineage_livedisplay_server (fd (use)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_livedisplay.te
-(allow hal_lineage_livedisplay_client hal_lineage_livedisplay_service (service_manager (find)))
+;; [SANITIZED empty attr] (allow hal_lineage_livedisplay_client hal_lineage_livedisplay_service (service_manager (find)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_livedisplay.te
 (allow hal_lineage_livedisplay_server hal_lineage_livedisplay_service (service_manager (add find)))
@@ -20933,16 +20933,16 @@
 (neverallow base_typeattr_396_202604 hal_lineage_livedisplay_service (service_manager (find)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_powershare.te
-(allow hal_lineage_powershare_client hal_lineage_powershare_server (binder (call transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_powershare_client hal_lineage_powershare_server (binder (call transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_powershare.te
-(allow hal_lineage_powershare_server hal_lineage_powershare_client (binder (transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_powershare_server hal_lineage_powershare_client (binder (transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_powershare.te
-(allow hal_lineage_powershare_client hal_lineage_powershare_server (fd (use)))
+;; [SANITIZED empty attr] (allow hal_lineage_powershare_client hal_lineage_powershare_server (fd (use)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_powershare.te
-(allow hal_lineage_powershare_client hal_lineage_powershare_service (service_manager (find)))
+;; [SANITIZED empty attr] (allow hal_lineage_powershare_client hal_lineage_powershare_service (service_manager (find)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_powershare.te
 (allow hal_lineage_powershare_server hal_lineage_powershare_service (service_manager (add find)))
@@ -20957,16 +20957,16 @@
 (neverallow base_typeattr_398_202604 hal_lineage_powershare_service (service_manager (find)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_touch.te
-(allow hal_lineage_touch_client hal_lineage_touch_server (binder (call transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_touch_client hal_lineage_touch_server (binder (call transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_touch.te
-(allow hal_lineage_touch_server hal_lineage_touch_client (binder (transfer)))
+;; [SANITIZED empty attr] (allow hal_lineage_touch_server hal_lineage_touch_client (binder (transfer)))
 ;;* lme
 ;;* lmx 2 device/lineage/sepolicy/common/dynamic/hal_lineage_touch.te
-(allow hal_lineage_touch_client hal_lineage_touch_server (fd (use)))
+;; [SANITIZED empty attr] (allow hal_lineage_touch_client hal_lineage_touch_server (fd (use)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_touch.te
-(allow hal_lineage_touch_client hal_lineage_touch_service (service_manager (find)))
+;; [SANITIZED empty attr] (allow hal_lineage_touch_client hal_lineage_touch_service (service_manager (find)))
 ;;* lme
 ;;* lmx 4 device/lineage/sepolicy/common/dynamic/hal_lineage_touch.te
 (allow hal_lineage_touch_server hal_lineage_touch_service (service_manager (add find)))
@@ -21588,3 +21588,7 @@
 (typeattributeset base_typeattr_244_202604 (and (domain) (not (dumpstate_202604 init_202604 hal_face_default))))
 ;;* lme
 
+
+;; Mainline apexd vendor permissions
+(allow apexd_202604 unlabeled_202604 (dir (open read getattr search)))
+(allow apexd_202604 vendor_file_202604 (dir (open read getattr search)))
