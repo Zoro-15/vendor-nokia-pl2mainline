@@ -1,5 +1,5 @@
 # Firmware directories for Nokia 6.1 Mainline
-firmware_directories /vendor/firmware/ /vendor/firmware/qcom/ /vendor/firmware_mnt/
+firmware_directories /vendor/firmware/ /vendor/firmware/qcom/ /odm/firmware/ /firmware/image/ /vendor/firmware_mnt/image/ /vendor/firmware_mnt/ /vendor/bt_firmware/image/
 modalias_handling enabled
 
 # DRM / KMS Graphics (Adreno 508 / freedreno / card0)
@@ -22,4 +22,3 @@ modalias_handling enabled
 
 # Input Subsystem (Goodix GT1152 Digitizer)
 /dev/input/event*         0660   system     input
-

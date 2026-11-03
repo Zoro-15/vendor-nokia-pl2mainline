@@ -5,7 +5,5 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),PL2_mainline)
-include $(CLEAR_VARS)
-endif
+# No makefile prebuilts declared; modules and firmware are handled via pl2_mainline-vendor.mk
 
