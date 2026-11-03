@@ -5,16 +5,12 @@
 
 VENDOR_PATH := vendor/nokia/PL2_mainline
 
-# Copy authentic OEM firmware files
+# Copy authentic OEM firmware files (a530 GPU microcodes are provided by external/linux-firmware-mainline)
 PRODUCT_COPY_FILES += \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.mdt \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b00:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b00 \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b01:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b01 \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b02:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b02 \
-    $(VENDOR_PATH)/proprietary/firmware/a530_pm4.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pm4.fw \
-    $(VENDOR_PATH)/proprietary/firmware/a530_pfp.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pfp.fw \
-    $(VENDOR_PATH)/proprietary/firmware/a530_pm4.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/a530_pm4.fw \
-    $(VENDOR_PATH)/proprietary/firmware/a530_pfp.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/a530_pfp.fw \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/a508_zap.mdt \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b00:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/a508_zap.b00 \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b01:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/a508_zap.b01 \
