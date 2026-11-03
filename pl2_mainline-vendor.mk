@@ -21,7 +21,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware=nokia-pl2 \
     sys.usb.controller=a800000.usb \
     vendor.usb.controller=a800000.usb \
-    ro.opengles.version=196609 \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.has_wide_color_display=false \
     ro.surface_flinger.has_HDR_display=false \
