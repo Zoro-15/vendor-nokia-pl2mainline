@@ -5,9 +5,8 @@
 
 VENDOR_PATH := vendor/nokia/PL2_mainline
 
-# Copy authentic OEM firmware files and vendor VINTF manifest
+# Copy authentic OEM firmware files
 PRODUCT_COPY_FILES += \
-    $(VENDOR_PATH)/proprietary/etc/vintf/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest.xml \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.mdt \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b00:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b00 \
     $(VENDOR_PATH)/proprietary/firmware/a508_zap.b01:$(TARGET_COPY_OUT_VENDOR)/firmware/a508_zap.b01 \
