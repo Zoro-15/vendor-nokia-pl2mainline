@@ -107,7 +107,7 @@ jobs:
             vendor_b.img
             vendor.img
             sha256sum.txt
-          retention-days: 14
+          retention-days: 1
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
