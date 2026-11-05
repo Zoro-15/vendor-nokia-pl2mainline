@@ -1,0 +1,162 @@
+name: Build Nokia 6.1 (PL2) Mainline Vendor Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      vendor_size:
+        description: 'Vendor filesystem size (e.g. 512M, 1024M)'
+        required: false
+        default: '512M'
+  push:
+    branches:
+      - lineage-24.0
+      - main
+      - master
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+  pull_request:
+    branches:
+      - lineage-24.0
+
+permissions:
+  contents: write
+
+jobs:
+  build-vendor:
+    name: Build & Package Minimal Vendor Image
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout Vendor Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install Build Dependencies
+        run: |
+          sudo apt-get update -o Acquire::Retries=3 -o Acquire::http::Timeout=30
+          sudo apt-get install -y -o Acquire::Retries=3 -o Acquire::http::Timeout=30 \
+            e2fsprogs android-sdk-libsparse-utils curl file coreutils
+
+      - name: Extract & Verify Authentic Downstream Firmware
+        run: |
+          chmod +x extract_files.sh
+          ./extract_files.sh
+
+      - name: Package Minimal Vendor Image
+        env:
+          VENDOR_SIZE: ${{ github.event.inputs.vendor_size || '512M' }}
+        run: |
+          chmod +x pack_vendor.sh
+          sudo -E VENDOR_SIZE="${VENDOR_SIZE}" ./pack_vendor.sh
+
+          # Restore runner user ownership
+          sudo chown -R $USER:$USER .
+
+          # Create vendor.img duplicate alongside vendor_b.img for versatility
+          cp vendor_b.img vendor.img
+
+          # Generate cryptographic SHA256 hashes
+          sha256sum vendor_b.img vendor.img > sha256sum.txt
+
+      - name: Inspect & Validate Vendor Image
+        run: |
+          echo "=========================================================="
+          echo " Generated Vendor Artifacts"
+          echo "=========================================================="
+          ls -lh vendor_b.img vendor.img sha256sum.txt
+          file vendor_b.img
+          cat sha256sum.txt
+          echo "=========================================================="
+
+          # Populate GitHub Actions step summary
+          echo "### 📦 Nokia 6.1 (PL2) Mainline Vendor Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Artifact | Size | Format |" >> $GITHUB_STEP_SUMMARY
+          echo "| :--- | :--- | :--- |" >> $GITHUB_STEP_SUMMARY
+          for f in vendor_b.img vendor.img; do
+            fsize=$(ls -lh "$f" | awk '{print $5}')
+            ftype=$(file -b "$f")
+            echo "| \`$f\` | $fsize | $ftype |" >> $GITHUB_STEP_SUMMARY
+          done
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### 🔐 SHA-256 Checksums" >> $GITHUB_STEP_SUMMARY
+          echo '```text' >> $GITHUB_STEP_SUMMARY
+          cat sha256sum.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### ⚡ Fastboot Flashing Instructions (Slot B ONLY)" >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
+          echo "# Direct flash to inactive Slot B" >> $GITHUB_STEP_SUMMARY
+          echo "fastboot flash vendor_b vendor_b.img" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Extract & Display Build Errors
+        if: failure()
+        run: |
+          echo "### ❌ Vendor Image Packaging Failed" >> $GITHUB_STEP_SUMMARY
+          echo "Check the step execution logs for mke2fs, img2simg, or network fetch errors." >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload Artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nokia-PL2-Mainline-Vendor-${{ github.run_number }}
+          path: |
+            vendor_b.img
+            vendor.img
+            sha256sum.txt
+          retention-days: 14
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: success() && github.event_name != 'pull_request'
+        with:
+          tag_name: vendor-v${{ github.run_number }}
+          name: Nokia 6.1 (PL2) Mainline Minimal Vendor Image #${{ github.run_number }}
+          body: |
+            ## Nokia 6.1 (PL2) Mainline Minimal Vendor CI Build #${{ github.run_number }}
+
+            **Target Device:** Qualcomm Snapdragon 630 (`sdm630`) — HMD Global Nokia 6.1 (`PL2` / `Plate2` / `PL2_mainline`)  
+            **Target OS:** LineageOS 24.0 / Android 17 (Baklava) & Treble GSI ARM64  
+            **Target Partition:** Slot B ONLY (`vendor_b`, 512 MB virtual ext4 sparse image)  
+            **Commit:** `${{ github.sha }}` (branch `${{ github.ref_name }}`)  
+
+            ---
+
+            ### 📦 Artifacts Included
+            - **`vendor_b.img`**: Android Sparse ext4 filesystem image configured specifically for Slot B.
+            - **`vendor.img`**: Convenience duplicate of `vendor_b.img` for generic flash scripts.
+            - **`sha256sum.txt`**: Cryptographic integrity verification hashes.
+
+            ---
+
+            ### ⚙️ Minimal Partition Components
+            1. **Qualcomm Adreno 508 / 530 GPU Firmware:**
+               - TrustZone PIL Zap Shader slices (`a508_zap.mdt`, `a508_zap.b00`, `a508_zap.b01`, `a508_zap.b02`)
+               - Microcode (`a530_pm4.fw`, `a530_pfp.fw`)
+            2. **Direct Linux DRM / KMS Support:**
+               - `mesa` Freedreno / sysmem rendering configuration
+               - `minigbm` avoid UBWC workarounds
+            3. **Stage 1 Boot & Mainline Device Symlinks:**
+               - `init.nokia-pl2.rc`: maps `/dev/block/platform/soc@0/c0c4000.mmc` to `/dev/block/bootdevice`
+               - DRM render nodes & Goodix capacitive touchscreen permissions
+            4. **Storage & Android 17 Readiness:**
+               - `fstab.nokia-pl2`: First-stage mounts `/system` and `/vendor`; maps `/metadata` on `logdump` partition (`mmcblk1p79`) for `aconfigd`
+               - `use_memfd.rc`: `sys.use_memfd=true` for Android 17 ashmem deprecation
+
+            ---
+
+            ### 🚀 Flashing Instructions (Slot B ONLY)
+            ```bash
+            # Connect device in fastboot mode and flash directly to Slot B
+            fastboot flash vendor_b vendor_b.img
+            ```
+          files: |
+            vendor_b.img
+            vendor.img
+            sha256sum.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
