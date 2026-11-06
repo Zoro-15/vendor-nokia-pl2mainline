@@ -2771,3 +2771,9 @@
 (allow apexd_202604 unlabeled_202604 (dir (open read getattr search)))
 (allow apexd_202604 vendor_file_202604 (dir (open read getattr search)))
 (allow apexd_202604 vendor_file_202604 (file (read getattr open)))
+
+;; =========================================================================
+;; Retrofit Dynamic Partitions & Fastbootd / Recovery Rules (Android 17 / API 37)
+;; =========================================================================
+;; Map system_block_device to super_block_device_type for fastbootd retrofit super partition access
+(typeattributeset super_block_device_type (system_block_device_202604))

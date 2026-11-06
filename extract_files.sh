@@ -16,6 +16,7 @@ declare -A FILES=(
     ["a508_zap.b02"]="https://raw.githubusercontent.com/nokia-msm8998/proprietary_vendor_nokia_sdm660-common/lineage-24.0/proprietary/vendor/firmware/a508_zap.b02"
     ["a530_pm4.fw"]="https://gitlab.com/kernel-firmware/linux-firmware/-/raw/main/qcom/a530_pm4.fw"
     ["a530_pfp.fw"]="https://gitlab.com/kernel-firmware/linux-firmware/-/raw/main/qcom/a530_pfp.fw"
+    ["TP_Firmware_FT8716_PL2.bin"]="https://raw.githubusercontent.com/nokia-msm8998/proprietary_vendor_nokia_PL2/lineage-24.0/proprietary/vendor/firmware/TP_Firmware_FT8716_PL2.bin"
 )
 
 for file in "${!FILES[@]}"; do
