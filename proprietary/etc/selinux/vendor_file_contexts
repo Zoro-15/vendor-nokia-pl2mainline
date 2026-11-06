@@ -965,7 +965,7 @@
 /dev/socket/rild2                               u:object_r:rild_socket:s0
 /dev/socket/rild3                               u:object_r:rild_socket:s0
 /dev/wcd-dsp-glink                              u:object_r:audio_device:s0
-/dev/block/mmcblk1                              u:object_r:sd_device:s0
+/dev/block/mmcblk1                              u:object_r:sdcard_block_device:s0
 /dev/coresight-stm                              u:object_r:qdss_device:s0
 /dev/socket/ssgtzd                              u:object_r:ssgtzd_socket:s0
 /dev/block/mmcblk0                                                              u:object_r:root_block_device:s0
@@ -975,7 +975,7 @@
 /dev/socket/ssgqmig                             u:object_r:ssgqmig_socket:s0
 /dev/socket/cutback                 u:object_r:cutback_socket:s0
 /dev/cpu_dma_latency                            u:object_r:device_latency:s0
-/dev/block/mmcblk1p1                            u:object_r:sd_device:s0
+/dev/block/mmcblk1p1                            u:object_r:sdcard_block_device:s0
 /dev/efs_hsic_bridge                            u:object_r:efsbridgehsic_device:s0
 /dev/socket/ims_qmid                            u:object_r:ims_socket:s0
 /sys/devices/virtual                                                u:object_r:sysfs_thermal:s0
@@ -1061,6 +1061,26 @@
 /dev/block/platform/soc@0/c0c4000\.mmc/by-name/bluetooth_[ab] u:object_r:modem_block_device:s0
 /dev/block/platform/soc@0/c0c4000\.mmc/by-name/dsp_[ab]       u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc@0/c0c4000\.mmc/by-name/persist        u:object_r:persist_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/xbl_[ab]          u:object_r:xbl_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/abl_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/tz_[ab]           u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/hyp_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/rpm_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/devcfg_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/cmnlib_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/cmnlib64_[ab]     u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/keymaster_[ab]    u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/pmic_[ab]         u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/cda_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/hidden_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/nvdef_[ab]        u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/splash_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/systeminfo_[ab]   u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/mdtp_[ab]         u:object_r:mdtp_device:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/box               u:object_r:fih_partition:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/deviceinfo        u:object_r:fih_partition:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/securefs          u:object_r:fih_partition:s0
+/dev/block/platform/soc@0/c0c4000\.mmc/by-name/storesec          u:object_r:boot_block_device:s0
 
 # Bootdevice symlink paths (/dev/block/bootdevice -> /dev/block/platform/soc@0/c0c4000.mmc)
 /dev/block/bootdevice/by-name/logdump                        u:object_r:metadata_block_device:s0
@@ -1073,6 +1093,26 @@
 /dev/block/bootdevice/by-name/bluetooth_[ab]                 u:object_r:modem_block_device:s0
 /dev/block/bootdevice/by-name/dsp_[ab]                       u:object_r:custom_ab_block_device:s0
 /dev/block/bootdevice/by-name/persist                        u:object_r:persist_block_device:s0
+/dev/block/bootdevice/by-name/xbl_[ab]          u:object_r:xbl_block_device:s0
+/dev/block/bootdevice/by-name/abl_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/tz_[ab]           u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/hyp_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/rpm_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/devcfg_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/cmnlib_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/cmnlib64_[ab]     u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/keymaster_[ab]    u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/pmic_[ab]         u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/cda_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/hidden_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/nvdef_[ab]        u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/splash_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/systeminfo_[ab]   u:object_r:custom_ab_block_device:s0
+/dev/block/bootdevice/by-name/mdtp_[ab]         u:object_r:mdtp_device:s0
+/dev/block/bootdevice/by-name/box               u:object_r:fih_partition:s0
+/dev/block/bootdevice/by-name/deviceinfo        u:object_r:fih_partition:s0
+/dev/block/bootdevice/by-name/securefs          u:object_r:fih_partition:s0
+/dev/block/bootdevice/by-name/storesec          u:object_r:boot_block_device:s0
 
 /dev/block/by-name/logdump                                   u:object_r:metadata_block_device:s0
 /dev/block/by-name/userdata                                  u:object_r:userdata_block_device:s0
@@ -1084,8 +1124,29 @@
 /dev/block/by-name/bluetooth_[ab]                            u:object_r:modem_block_device:s0
 /dev/block/by-name/dsp_[ab]                                  u:object_r:custom_ab_block_device:s0
 /dev/block/by-name/persist                                   u:object_r:persist_block_device:s0
+/dev/block/by-name/xbl_[ab]          u:object_r:xbl_block_device:s0
+/dev/block/by-name/abl_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/tz_[ab]           u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/hyp_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/rpm_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/devcfg_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/cmnlib_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/cmnlib64_[ab]     u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/keymaster_[ab]    u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/pmic_[ab]         u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/cda_[ab]          u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/hidden_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/nvdef_[ab]        u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/splash_[ab]       u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/systeminfo_[ab]   u:object_r:custom_ab_block_device:s0
+/dev/block/by-name/mdtp_[ab]         u:object_r:mdtp_device:s0
+/dev/block/by-name/box               u:object_r:fih_partition:s0
+/dev/block/by-name/deviceinfo        u:object_r:fih_partition:s0
+/dev/block/by-name/securefs          u:object_r:fih_partition:s0
+/dev/block/by-name/storesec          u:object_r:boot_block_device:s0
 
 # Removable MicroSD card block devices
+/dev/block/mmcblk1                                           u:object_r:sdcard_block_device:s0
 /dev/block/mmcblk1p[0-9]+                                    u:object_r:sdcard_block_device:s0
 
 # Hardware Random Number Generator

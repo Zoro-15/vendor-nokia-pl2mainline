@@ -31,5 +31,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.has_wide_color_display=false \
     ro.surface_flinger.has_HDR_display=false \
-    ro.surface_flinger.use_color_management=false
+    ro.surface_flinger.use_color_management=false \
+    ro.sf.lcd_density=420 \
+    ro.recovery.ui.blank_unblank_on_init=true
 

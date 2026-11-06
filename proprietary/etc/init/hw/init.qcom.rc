@@ -13,7 +13,7 @@ on early-init
 
 on fs
     # Mount partitions without latemount
-    mount_all /vendor/etc/fstab.nokia-pl2 --early
+    mount_all /vendor/etc/fstab.qcom --early
 
 on post-fs
     # Load mainline kernel modules
@@ -23,7 +23,7 @@ on post-fs
 
 on late-fs
     # Mount userdata and partitions requiring fsck
-    mount_all /vendor/etc/fstab.nokia-pl2 --late
+    mount_all /vendor/etc/fstab.qcom --late
 
 on init
     # Configure USB gadget controller (Mainline Linux 7.2 UDC platform device on SDM630)

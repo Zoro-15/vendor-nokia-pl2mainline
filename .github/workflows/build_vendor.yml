@@ -9,6 +9,7 @@ on:
         default: '512M'
   push:
     branches:
+      - Android-17
       - lineage-24.0
       - main
       - master

@@ -22,3 +22,11 @@ modalias_handling enabled
 
 # Input Subsystem (Goodix GT1152 Digitizer)
 /dev/input/event*         0660   system     input
+
+# Hardware Crypto (QCE) & Hardware Random Number Generator (QCOM RNG)
+/dev/qce                  0660   system     drmrpc
+/dev/hwrng                0440   root       system
+
+# Fingerprint Sensor
+/dev/elan_fp              0660   system     system
+/dev/goodix_fp            0660   system     system
