@@ -757,9 +757,9 @@
 /dev/block/platform/soc/1da4000.ufshc/by-name/super                             u:object_r:super_block_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/system                            u:object_r:system_block_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/system                            u:object_r:system_block_device:s0
-/dev/block/platform/soc/c0c4000.sdhci/by-name/logdump                           u:object_r:logdump_partition:s0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/logdump                           u:object_r:metadata_block_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/persist                           u:object_r:persist_block_device:s0
-/dev/block/platform/soc/1da4000.ufshc/by-name/logdump                           u:object_r:logdump_partition:s0
+/dev/block/platform/soc/1da4000.ufshc/by-name/logdump                           u:object_r:metadata_block_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/persist                           u:object_r:persist_block_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/tz_[ab]           u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/tz_[ab]           u:object_r:custom_ab_block_device:s0
@@ -1045,7 +1045,29 @@
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/logdump                         u:object_r:metadata_block_device:s0
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/securefs                        u:object_r:fih_partition:s0
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/storesec                        u:object_r:boot_block_device:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/storsec                         u:object_r:boot_block_device:s0
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/deviceinfo                      u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/devinfo                         u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/apdp                            u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/splash2                         u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/bspdata                         u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/hwcfg                           u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/sec                             u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/sutinfo                         u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/toolsfv                         u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/battprof                        u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/ddr                             u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/dpo                             u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/elabel                          u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/keystore                        u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/limits                          u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/logbk                           u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/logfs                           u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/nvcust                          u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/reserved                        u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/reserved_bak                    u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/rf_nv                           u:object_r:fih_partition:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/sti                             u:object_r:fih_partition:s0
 /sys/devices/vendor/vendor:bt_wcn3990/rfkill/rfkill0/state          u:object_r:sysfs_bluetooth_writable:s0
 
 # -------------------------------------------------------------
@@ -1246,7 +1268,6 @@
 /dev/block/by-name/sti                                            u:object_r:fih_partition:s0
 
 # Removable MicroSD card block devices
-/dev/block/mmcblk1                                           u:object_r:sdcard_block_device:s0
 /dev/block/mmcblk1p[0-9]+                                    u:object_r:sdcard_block_device:s0
 
 # Qualcomm RPMB & eMMC hardware partitions

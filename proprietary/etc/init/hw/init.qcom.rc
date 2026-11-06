@@ -9,7 +9,9 @@ on early-init
     # Set up bootdevice symlink for mainline eMMC controller (soc@0/c0c4000.mmc)
     wait /dev/block/platform/soc@0/c0c4000.mmc 10
     symlink /dev/block/platform/soc@0/c0c4000.mmc /dev/block/bootdevice
+    mkdir /dev/block/platform/soc 0755 root root
     symlink /dev/block/platform/soc@0/c0c4000.mmc /dev/block/platform/soc/c0c4000.sdhci
+    symlink /dev/block/platform/soc@0/c0c4000.mmc /dev/block/platform/soc/c0c4000.mmc
 
 on fs
     # Mount partitions without latemount

@@ -2784,4 +2784,6 @@
 
 ;; Recovery persistent boot logging via pstorefs
 (allow recovery_202604 pstorefs_202604 (dir (open read getattr search)))
+(allow recovery_202604 pstorefs_202604 (dir (write remove_name add_name)))
 (allow recovery_202604 pstorefs_202604 (file (open read getattr)))
+(allow recovery_202604 pstorefs_202604 (file (write unlink)))
