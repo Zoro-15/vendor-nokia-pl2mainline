@@ -2777,3 +2777,11 @@
 ;; =========================================================================
 ;; Map system_block_device to super_block_device_type for fastbootd retrofit super partition access
 (typeattributeset super_block_device_type (system_block_device_202604))
+
+;; Recovery loop device management for retrofit dynamic partitions and APEX staging
+(allow recovery_202604 sysfs_loop_202604 (dir (open read getattr search)))
+(allow recovery_202604 sysfs_loop_202604 (file (open read write getattr)))
+
+;; Recovery persistent boot logging via pstorefs
+(allow recovery_202604 pstorefs_202604 (dir (open read getattr search)))
+(allow recovery_202604 pstorefs_202604 (file (open read getattr)))

@@ -18,6 +18,7 @@ on:
       - '.gitignore'
   pull_request:
     branches:
+      - Android-17
       - lineage-24.0
 
 permissions:
