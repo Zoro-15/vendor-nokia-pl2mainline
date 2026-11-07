@@ -33,5 +33,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.surface_flinger.has_HDR_display=false \
     ro.surface_flinger.use_color_management=false \
     ro.sf.lcd_density=420 \
-    ro.recovery.ui.blank_unblank_on_init=true
+    ro.recovery.ui.blank_unblank_on_init=true \
+    ro.recovery.ui.brightness_file=/sys/class/backlight/pm660l_wled/brightness \
+    ro.recovery.ui.max_brightness_file=/sys/class/backlight/pm660l_wled/max_brightness
 
